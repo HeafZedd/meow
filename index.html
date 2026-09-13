@@ -423,4 +423,22 @@
         }
     </script>
 </body>
-</html>
+</html> 
+---
+<script>
+    // Chặn phím tắt mở F12, Ctrl+Shift+I, Ctrl+U
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+            (e.ctrlKey && e.key === 'u')) {
+            e.preventDefault();
+            alert('Tính năng này đã bị khóa!');
+        }
+    });
+
+    // Chặn nhấn chuột phải
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+</script>
+</body>
