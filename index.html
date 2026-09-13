@@ -424,15 +424,15 @@
     </script>
 </body>
 </html> 
+
 // ĐÓNG MODAL
         function closeModal() {
             modal.style.display = 'none';
         }
-    </script>
+    </script> <!-- Thẻ đóng script của phần modal -->
 
-    <!-- Dán đoạn code chặn F12 vào ĐÂY (trước thẻ đóng body) -->
+    <!-- Phần code chặn F12 -->
     <script>
-        // Chặn phím tắt mở F12, Ctrl+Shift+I, Ctrl+U
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12' || 
                 (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
@@ -442,11 +442,10 @@
             }
         });
 
-        // Chặn nhấn chuột phải
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
     </script>
 
-</body> <!-- Thẻ đóng body nằm cuối cùng -->
-</html> <!-- Thẻ đóng html nằm tận cùng -->
+</body>
+</html>
