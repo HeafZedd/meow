@@ -417,9 +417,29 @@
             }
         }
 
-        <script>
-    // ĐÓNG MODAL
-    function closeModal() {
-        modal.style.display = 'none';
-    }
-</script>
+        // ĐÓNG MODAL
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+    </script>
+
+    <!-- Dán đoạn code chặn F12 vào ĐÂY (trước thẻ đóng body) -->
+    <script>
+        // Chặn phím tắt mở F12, Ctrl+Shift+I, Ctrl+U
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                alert('Tính năng này đã bị khóa!');
+            }
+        });
+
+        // Chặn nhấn chuột phải
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+
+</body> <!-- Thẻ đóng body nằm cuối cùng -->
+</html> <!-- Thẻ đóng html nằm tận cùng -->
