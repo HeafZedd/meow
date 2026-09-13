@@ -391,7 +391,7 @@
                 updateBaKhiDisplay();
 
                 feedback.style.color = "#2ecc71";
-                feedback.innerText = "🎉  +999,999 Bá Khí";
+                feedback.innerText = " +999,999 Bá Khí";
 
                 circle.classList.add('solved');
                 circle.innerText = "✔";
@@ -422,16 +422,26 @@
             modal.style.display = 'none';
         }
     </script>
+</body>
+</html> 
 
-    <!-- Dán đoạn code chặn F12 vào ĐÂY (trước thẻ đóng body) -->
-    <script>
+
+
+
+
+
+<script>
+    // Kiểm tra xem trình duyệt này đã được cấp quyền admin chưa
+    // Nếu chưa có quyền, mới tiến hành kích hoạt các tính năng chặn
+    if (localStorage.getItem('isAdminUnlocked') !== 'true') {
+        
         // Chặn phím tắt mở F12, Ctrl+Shift+I, Ctrl+U
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12' || 
                 (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
                 (e.ctrlKey && e.key === 'u')) {
                 e.preventDefault();
-                alert('Tính năng này đã bị khóa!');
+                alert('Tính năng này đã bị khóa đối với người chơi!');
             }
         });
 
@@ -439,7 +449,11 @@
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
-    </script>
+    }
 
-</body> <!-- Thẻ đóng body nằm cuối cùng -->
-</html> <!-- Thẻ đóng html nằm tận cùng -->
+    // MẸO DÀNH CHO ADMIN:
+    // Khi bạn vào trang web bằng máy của mình, hãy mở Console (nếu lỡ chưa bật) 
+    // hoặc gõ nhanh phím tắt ẩn để bật quyền admin, hoặc dùng đoạn lệnh dưới đây trong Console:
+    // Gõ lệnh này vào Console rồi Enter để mở khóa vĩnh viễn trên trình duyệt của bạn:
+    // localStorage.setItem('isAdminUnlocked', 'true');
+</script>
