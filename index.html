@@ -476,17 +476,3 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 
 
-<script>
-  // Danh sách các IP bị chặn (đã thêm IP mới)
-  const blockedIPs = ['113.170.248.26', '42.114.4.231']; 
-
-  fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-      if (blockedIPs.includes(data.ip)) {
-        // Xóa nội dung trang web và hiển thị thông báo bị chặn
-        document.body.innerHTML = '<h2 style="text-align:center; margin-top:50px; color:red; font-family: sans-serif;">Bạn đã bị chặn truy cập trang web này.</h2>';
-      }
-    })
-    .catch(error => console.error('Lỗi kiểm tra IP:', error));
-</script>
