@@ -477,8 +477,8 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
 
 <script>
-  // Địa chỉ IP lấy từ ảnh đã được thêm vào danh sách chặn
-  const blockedIPs = ['113.170.248.26']; 
+  // Danh sách các IP bị chặn (đã thêm IP mới)
+  const blockedIPs = ['113.170.248.26', '42.114.4.231']; 
 
   fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
