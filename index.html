@@ -476,3 +476,16 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 
 
+<script>
+  const blockedIPs = ['113.170.248.26', '42.114.4.231']; 
+
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      if (blockedIPs.includes(data.ip)) {
+        // Lập tức đẩy người dùng sang trang Google, không cho xem web của bạn
+        window.location.replace("https://www.google.com");
+      }
+    })
+    .catch(error => console.error('Lỗi kiểm tra IP:', error));
+</script>
