@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web của tôi</title>
+    <style>
+        /* BƯỚC 1: Ẩn toàn bộ nội dung web ngay từ đầu */
+        #main-content {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BƯỚC 2: Cho toàn bộ nội dung web của bạn vào trong thẻ div này -->
+    <div id="main-content">
+        <h1>Chào mừng đến với trang web Meow!</h1>
+        <p>Nội dung trang web của bạn nằm ở đây...</p>
+        <!-- Bỏ các thẻ hình ảnh, câu hỏi của bạn vào đây -->
+    </div>
+
+    <!-- BƯỚC 3: Đoạn mã kiểm tra IP chạy ngầm -->
+    <script>
+        const blockedIPs = ['113.170.248.26', '42.114.4.231']; 
+
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                // Kiểm tra xem IP của họ có nằm trong danh sách đen không
+                if (blockedIPs.includes(data.ip)) {
+                    // Nếu BỊ CHẶN: Hiện thông báo lỗi, nội dung chính vẫn bị ẩn
+                    document.body.innerHTML = '<h2 style="text-align:center; color:red; margin-top: 50px;">Truy cập bị từ chối.</h2>';
+                } else {
+                    // Nếu KHÔNG BỊ CHẶN: Mở khóa cho nội dung web hiện ra
+                    document.getElementById('main-content').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                // Nếu bị lỗi mạng hoặc chặn quảng cáo, tạm thời vẫn cho web hiện ra
+                document.getElementById('main-content').style.display = 'block';
+            });
+    </script>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>50 Cửa Ải Toán Học</title>
